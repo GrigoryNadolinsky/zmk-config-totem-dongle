@@ -22,10 +22,11 @@
     led_strip: ws2812 {
         compatible = "worldsemi,ws2812-gpio";
         label = "WS2812";
-        gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;      // D8 / P0.08
-        in-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;   // Требуется Zephyr 3.5+
+        gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
+        in-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
         chain-length = <1>;
         color-order = "GRB";
+        color-mapping = <0 1 2>;  // GRB: G=0, R=1, B=2
         status = "okay";
     };
 };
