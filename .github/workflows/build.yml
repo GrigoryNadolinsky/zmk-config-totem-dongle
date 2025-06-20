@@ -1,16 +1,13 @@
 name: build ZMK
-on: [push, pull_request, workflow_dispatch]
+on:
+  - push
+  - pull_request
+  - workflow_dispatch
 
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
     with:
-      # Путь к вашей папке с конфигами (от корня репозитория)
       config: config
-      # Плата, которую вы используете
       board: seeeduino_xiao_ble
-      # Список вашей shield’ов через точку- с-запятой
       shields: totem_dongle;rgbled_adapter
-    secrets:
-      # если в оригинале требуются какие-то секреты (обычно ни одного)
-      # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
