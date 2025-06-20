@@ -6,34 +6,12 @@
 
 #include "totem.dtsi"
 
-/ {
-    aliases {
-        led-red   = &led0;
-        led-green = &led1;
-        led-blue  = &led2;
-    };
-    leds {
-        compatible = "gpio-leds";
-        status = "okay";
-        led0: led_0 {
-            gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;  /* красный */
-            label = "led-red";
-        };
-        led1: led_1 {
-            gpios = <&gpio0 14 GPIO_ACTIVE_LOW>;  /* зелёный */
-            label = "led-green";
-        };
-        led2: led_2 {
-            gpios = <&gpio0 15 GPIO_ACTIVE_LOW>;  /* синий */
-            label = "led-blue";
-        };
-    };
-};
-
 &kscan0 {
-    col-gpios = <&xiao_d 4  GPIO_ACTIVE_HIGH>,
-                <&xiao_d 5  GPIO_ACTIVE_HIGH>,
-                <&xiao_d 10 GPIO_ACTIVE_HIGH>,
-                <&xiao_d 9  GPIO_ACTIVE_HIGH>,
-                <&xiao_d 8  GPIO_ACTIVE_HIGH>;
+    col-gpios
+        = <&xiao_d 4 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 5 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 10 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 9 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 8 GPIO_ACTIVE_HIGH>
+        ;
 };
