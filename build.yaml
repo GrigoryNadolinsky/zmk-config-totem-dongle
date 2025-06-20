@@ -2,8 +2,7 @@
 # For simple board + shield combinations, add them
 # to the top level board and shield arrays, for more
 # control, add individual board + shield combinations to
-# the `include` property, e.g:
-#
+# the `include` property, for example:
 ---
 include:
   - board: seeeduino_xiao_ble
@@ -11,8 +10,6 @@ include:
   - board: seeeduino_xiao_ble
     shield: totem_right
   - board: seeeduino_xiao_ble
-    shield: totem_dongle
-  - board: seeeduino_xiao_ble
-    shield: totem_dongle_rgbled_adapter   # новый shield для RGB-индикации
+    shield: totem_dongle,rgbled_adapter
   - board: seeeduino_xiao_ble
     shield: settings_reset
