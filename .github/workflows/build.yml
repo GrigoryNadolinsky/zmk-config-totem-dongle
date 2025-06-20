@@ -1,13 +1,6 @@
 name: build ZMK
-on:
-  - push
-  - pull_request
-  - workflow_dispatch
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
-    with:
-      config: config
-      board: seeeduino_xiao_ble
-      shields: totem_dongle;rgbled_adapter
