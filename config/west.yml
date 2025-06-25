@@ -2,10 +2,18 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: grigory
+      url-base: https://github.com/GrigoryNadolinsky
+
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: main
       import: app/west.yml
+    - name: zmk-bat-led-indicator
+      remote: grigory
+      revision: main
+      path: modules/zmk-bat-led-indicator
+
   self:
     path: config
