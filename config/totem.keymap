@@ -48,12 +48,6 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            // -----------------------------------------------------------------------------------------
-            // |  GUI |   ~  |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |  [   | GUI/] |
-            //        | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |CTRL/'|
-            //        | LALT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | RALT |
-            //                           | RSE | SPC | LWR |   | LWR | BSPC | RSE |
-
             bindings = <
                 &ind_bat           &kp W           &kp E        &kp R             &ht RA(T) T    &kp Y      &kp U             &ht RA(I) I      &kp O           &kp P
                 &ht LEFT_WIN A  &ht LEFT_ALT S  &ht LCTRL D  &ht LEFT_SHIFT F  &kp G          &kp H      &ht LEFT_SHIFT J  &ht LCTRL K      &ht LEFT_ALT L  &ht LEFT_WIN SEMICOLON
@@ -63,12 +57,6 @@
         };
 
         lower_layer {
-            // -----------------------------------------------------------------------------------------
-            // |     |  _  |  F1 |  F2 |  F3 |  F4 |  F5 |   |  F6 |  F7 |  F8 |  F9 | F10 | F11 | F12 |
-            //       |  +  |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |  -  |
-            //       |  =  |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |     |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
-
             bindings = <
         &kp HOME  &kp LC(LEFT)      &kp UP_ARROW    &kp LC(RIGHT)      &kp PAGE_UP      &kp PLUS   &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp KP_MULTIPLY
         &none     &kp LEFT_ARROW    &kp DOWN_ARROW  &kp RIGHT_ARROW    &kp PAGE_DOWN    &kp MINUS  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp KP_DIVIDE
@@ -78,12 +66,6 @@
         };
 
         raise_layer {
-            // -----------------------------------------------------------------------------------------
-            // |     | NMLK |  /  |  7  |  8  |  9  |  -  |   | VOLU| HOME| PRSC| PGUP| SCLK| CLCK|     |
-            //       | CTRL |  *  |  4  |  5  |  6  |  +  |   | MUT | LEFT|  UP | RGHT| INS | APP |
-            //       |      |  0  |  1  |  2  |  3  |  .  |   | VOLD| END | DOWN| PGDN| PAUS|     |
-            //                          |     |     | ADJ |   | ADJ |     |     |
-
             bindings = <
                   &kp RA(NUMBER_1)  &kp LS(NUMBER_2)  &kp LS(NUMBER_3)  &kp LS(NUMBER_4)  &kp LS(NUMBER_6)    &kp RA(BACKSLASH)  &kp RA(LEFT_BRACKET)      &kp RA(RIGHT_BRACKET)      &kp RA(LS(SEMICOLON))  &kp RA(SINGLE_QUOTE)
                   &kp BACKSLASH     &kp LS(NUMBER_8)  &kp MINUS         &kp LS(EQUAL)     &kp EQUAL           &kp LS(NUMBER_7)   &kp LS(NUMBER_9)          &kp LS(NUMBER_0)           &kp RA(SEMICOLON)      &kp RA(LS(APOSTROPHE))
@@ -93,12 +75,6 @@
         };
 
         adjust_layer {
-            // -----------------------------------------------------------------------------------------
-            // | RST | BLDR |     |     |     |     |     |   |     |     |     |     |     | BLDR | RST |
-            //       | BTCLR| BT0 | BT1 | BT2 | BT3 | BT4 |   | BT4 | BT3 | BT2 | BT1 | BT0 | BTCLR|
-            //       |      |     |     |     |     |     |   |     |     |     |     |     |      |
-            //                          |     |     |     |   |     |     |     |
-
             bindings = <
        &kp F1  &kp F2   &kp F3   &kp F4   &kp C_BRIGHTNESS_INC    &kp C_VOLUME_UP    &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT    &none
        &kp F5  &kp F6   &kp F7   &kp F8   &kp C_BRIGHTNESS_DEC    &kp C_VOLUME_DOWN  &kp LEFT_SHIFT  &kp LCTRL         &kp LEFT_ALT  &kp LEFT_WIN
@@ -110,7 +86,7 @@
         layer_4 {
             bindings = <
        &none           &none         &none         &none        &none             &none  &none  &none  &none  &none
-       &bt BT_CLR_ALL  &bt BT_SEL 0  &bt BT_SEL 1  &bootloader  &studio_unlock    &none  &none  &none  &none  &none
+       &bt BT_CLR_ALL  &bt BT_SEL 0  &bt BT_SEL 1  &bootloader  &studio_unlock    &none  &ind_bat  &ind_con  &none  &none
 &none  &none           &none         &none         &none        &none             &none  &none  &none  &none  &none  &none
                                      &none         &none        &none             &none  &none  &none
             >;
@@ -118,9 +94,9 @@
 
         mouse_layer {
             bindings = <
-          &kp D  &none           &mmv MOVE_UP    &none            &none    &none  &none           &msc SCRL_UP    &none            &none
+          &none  &none           &mmv MOVE_UP    &none            &none    &none  &none           &msc SCRL_UP    &none            &none
           &none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none    &none  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &none
-&ind_bat  &none  &mkp MCLK       &mkp RCLK       &mkp LCLK        &none    &none  &mkp LCLK       &mkp RCLK       &mkp MCLK        &none  &ind_con
+&none  &none  &mkp MCLK       &mkp RCLK       &mkp LCLK        &none    &none  &mkp LCLK       &mkp RCLK       &mkp MCLK        &none  &none
                                  &none           &none            &none    &none  &none           &none
             >;
         };
