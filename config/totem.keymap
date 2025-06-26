@@ -1,9 +1,9 @@
 #include <dt-bindings/zmk/mouse.h>
+#include <behaviors/rgbled_widget.dtsi>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
-#include <behaviors/rgbled_widget.dtsi>
 
 #define DEF 0
 #define LWR 1
@@ -118,10 +118,10 @@
 
         mouse_layer {
             bindings = <
-       &none  &none           &mmv MOVE_UP    &none            &none    &none  &none           &msc SCRL_UP    &none            &none
-       &none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none    &none  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &none
+          &kp D  &none           &mmv MOVE_UP    &none            &none    &none  &none           &msc SCRL_UP    &none            &none
+          &none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none    &none  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &none
 &ind_bat  &none  &mkp MCLK       &mkp RCLK       &mkp LCLK        &none    &none  &mkp LCLK       &mkp RCLK       &mkp MCLK        &none  &ind_con
-                              &none           &none            &none    &none  &none           &none
+                                 &none           &none            &none    &none  &none           &none
             >;
         };
     };
