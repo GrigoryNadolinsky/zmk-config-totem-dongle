@@ -8,7 +8,8 @@
 #define LWR 1
 #define RSE 2
 #define ADJ 3
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 20
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 2000  // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 30    // default: 10
 
 / {
     behaviors {
@@ -107,6 +108,12 @@
     x-input-code = <INPUT_REL_X>;
     y-input-code = <INPUT_REL_Y>;
     time-to-max-speed-ms = <500>;
-    acceleration-exponent = <3>;
+    acceleration-exponent = <5>;
+};
+&msc {
+    x-input-code = <INPUT_REL_HWHEEL>;
+    y-input-code = <INPUT_REL_WHEEL>;
+    time-to-max-speed-ms = <500>;
+    acceleration-exponent = <5>;
 };
 
