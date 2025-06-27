@@ -30,7 +30,7 @@
         sleep_macro: sleep_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LG(D) &kp LA(F4) &kp UP_ARROW &kp ENTER> &soft_off;
+            bindings = <&kp LG(D) &kp LA(F4) &kp UP_ARROW &kp ENTER &soft_off>;
             label = "SLEEP_MACRO";
             wait-ms = <500>;
         };
