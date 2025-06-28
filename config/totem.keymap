@@ -29,27 +29,11 @@
     macros {
         sleep_macro: sleep_macro {
             compatible = "zmk,behavior-macro";
-            label = "SLEEP_MACRO";
             #binding-cells = <0>;
-            bindings = <
-                &macro_tap_time 100
-        
-                &soft_off              // 1. Сначала переводим ZMK в soft off (перестаёт реагировать)
-                &macro_wait_time 100   // 2. Даём системе применить soft_off
-        
-                &kp LG(D)              // 3. Win + D — показать рабочий стол
-                &macro_wait_time 100
-        
-                &kp LA(F4)             // 4. Alt + F4 — вызвать окно выключения
-                &macro_wait_time 100
-        
-                &kp UP_ARROW           // 5. Выбрать пункт "Выключить"
-                &macro_wait_time 100
-        
-                &kp ENTER              // 6. Подтвердить
-            >;
+            bindings = <&kp LG(D) &kp LA(F4) &kp UP_ARROW &kp ENTER>;
+            label = "SLEEP_MACRO";
+            wait-ms = <350>;
         };
-
     };
 
     combos {
