@@ -3,6 +3,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 
 #define DEF 0
@@ -34,6 +35,20 @@
             bindings = <&kp LG(D) &kp LA(F4) &kp UP_ARROW &kp ENTER>;
             label = "SLEEP_MACRO";
             wait-ms = <350>;
+        };
+
+        dongle_macro: dongle_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&out OUT_USB>;
+            label = "DONGLE_MACRO";
+        };
+
+        bluetooth_macro: bluetooth_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0 &out OUT_BLE>;
+            label = "BLUETOOTH_MACRO";
         };
     };
 
@@ -92,10 +107,10 @@
 
         system_layer {
             bindings = <
-       &none  &none  &none  &none  &none    &bt BT_CLR_ALL  &bt BT_SEL 0  &bt BT_SEL 1  &none  &none
-       &none  &none  &none  &none  &none    &bt BT_CLR      &ind_bat      &ind_con      &none  &none
-&none  &none  &none  &none  &none  &none    &none           &none         &none         &none  &none  &none
-                     &none  &none  &none    &none           &none         &none
+       &none  &none  &none  &none  &none    &bt BT_CLR_ALL  &bt BT_SEL 0   &bt BT_SEL 1      &none  &none
+       &none  &none  &none  &none  &none    &bt BT_CLR      &ind_bat       &ind_con          &none  &none
+&none  &none  &none  &none  &none  &none    &none           &dongle_macro  &bluetooth_macro  &none  &none  &none
+                     &none  &none  &none    &none           &none          &none
             >;
         };
 
