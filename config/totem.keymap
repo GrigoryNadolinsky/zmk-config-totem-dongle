@@ -44,11 +44,25 @@
             label = "DONGLE_MACRO";
         };
 
-        bluetooth_macro: bluetooth_macro {
+        bluetooth_macro_1: bluetooth_macro_1 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&bt BT_SEL 0 &out OUT_BLE>;
-            label = "BLUETOOTH_MACRO";
+            label = "BLUETOOTH_MACRO_1";
+        };
+
+        bluetooth_macro_2: bluetooth_macro_2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 1 &out OUT_BLE>;
+            label = "BLUETOOTH_MACRO_2";
+        };
+
+        switch_language: switch_language {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(LEFT_ALT)>;
+            label = "SWITCH_LANGUAGE";
         };
     };
 
@@ -56,7 +70,7 @@
         compatible = "zmk,combos";
 
         changing_the_language {
-            bindings = <&kp LC(LEFT_SHIFT)>;
+            bindings = <&switch_language>;
             key-positions = <16 12 13 17>;
         };
 
@@ -92,25 +106,25 @@
                   &kp RA(NUMBER_1)  &kp LS(NUMBER_2)  &kp LS(NUMBER_3)  &kp LS(NUMBER_4)  &kp LS(NUMBER_6)    &kp RA(BACKSLASH)  &kp RA(LEFT_BRACKET)      &kp RA(RIGHT_BRACKET)      &kp RA(LS(SEMICOLON))  &kp RA(SINGLE_QUOTE)
                   &kp BACKSLASH     &kp LS(NUMBER_8)  &kp MINUS         &kp LS(EQUAL)     &kp EQUAL           &kp LS(NUMBER_7)   &kp LS(NUMBER_9)          &kp LS(NUMBER_0)           &kp RA(SEMICOLON)      &kp RA(LS(APOSTROPHE))
 &kp LS(NUMBER_5)  &kp RA(NUMBER_2)  &kp RA(MINUS)     &kp LS(NUMBER_1)  &kp RA(SLASH)     &none               &kp LS(MINUS)      &kp RA(LS(LEFT_BRACKET))  &kp RA(LS(RIGHT_BRACKET))  &kp RA(LS(COMMA))      &kp RA(LS(PERIOD))      &kp LS(BACKSLASH)
-                                                      &none             &mo 3             &none               &trans             &mo 3                     &kp DELETE
+                                                      &none             &mo 3             &none               &trans             &lt 3 DELETE              &none
             >;
         };
 
         function_layer {
             bindings = <
-       &kp F1  &kp F2   &kp F3   &kp F4   &kp C_BRIGHTNESS_INC    &kp C_VOLUME_UP    &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT    &none
-       &kp F5  &kp F6   &kp F7   &kp F8   &kp C_BRIGHTNESS_DEC    &kp C_VOLUME_DOWN  &kp LEFT_SHIFT  &kp LCTRL         &kp LEFT_ALT  &kp LEFT_WIN
-&mo 4  &kp F9  &kp F10  &kp F11  &kp F12  &sleep_macro            &kp C_MUTE         &none           &none             &none         &none         &none
-                        &none    &none    &none                   &none              &none           &none
+       &kp F1  &kp F2   &kp F3   &kp F4   &kp C_BRIGHTNESS_INC    &kp C_VOLUME_UP    &kp C_PREVIOUS      &kp C_PLAY_PAUSE    &kp C_NEXT     &none
+       &kp F5  &kp F6   &kp F7   &kp F8   &kp C_BRIGHTNESS_DEC    &kp C_VOLUME_DOWN  &kp LEFT_SHIFT      &kp LCTRL           &kp LEFT_ALT   &kp LEFT_WIN
+&mo 4  &kp F9  &kp F10  &kp F11  &kp F12  &sleep_macro            &kp C_MUTE         &bluetooth_macro_1  &bluetooth_macro_2  &dongle_macro  &none         &none
+                        &none    &none    &none                   &none              &none               &none
             >;
         };
 
         system_layer {
             bindings = <
-       &none  &none  &none  &none  &none    &bt BT_CLR_ALL  &bt BT_SEL 0   &bt BT_SEL 1      &none  &none
-       &none  &none  &none  &none  &none    &bt BT_CLR      &ind_bat       &ind_con          &none  &none
-&none  &none  &none  &none  &none  &none    &none           &dongle_macro  &bluetooth_macro  &none  &none  &none
-                     &none  &none  &none    &none           &none          &none
+       &none  &none  &none  &none  &none    &bt BT_CLR_ALL  &bt BT_SEL 0  &bt BT_SEL 1  &none  &none
+       &none  &none  &none  &none  &none    &bt BT_CLR      &ind_bat      &ind_con      &none  &none
+&none  &none  &none  &none  &none  &none    &none           &none         &none         &none  &none  &none
+                     &none  &none  &none    &none           &none         &none
             >;
         };
 
